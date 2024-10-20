@@ -12,7 +12,7 @@
 
     <groupId>io.github.fenbaitiao</groupId>
     <artifactId>ftbapi-spring-boot-starter</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <name>ftbapi-spring-boot-starter</name>
     <description>ftbapi-spring-boot-starter</description>
     <url>https://github.com/fenbaitiao/j00w7matei</url>
@@ -89,15 +89,10 @@
     </dependencies>
 
 
-
-
-
     <issueManagement>
         <system>Github Issue</system>
         <url>https://github.com/fenbaitiao/j00w7matei</url>
     </issueManagement>
-
-
 
 
     <!--源代码管理-->

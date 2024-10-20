@@ -49,11 +49,12 @@ public class FbtApiClient {
         HashMap<String, Object> paramMap = new HashMap<>();
         paramMap.put("question", question);
 //        String result = HttpUtil.post(GATEWAY_HOST + "/spark/askqustion", paramMap);
+        String jsonStr = JSONUtil.toJsonStr(paramMap);
         String result = HttpRequest.post(GATEWAY_HOST + "/spark/askqustion")
                 .header("accessKey", accessKey)//头信息，多个头信息多次调用此方法即可
                 .header("sign",genSign(SALT,secretKey))
-                .form(paramMap)//表单内容
                 .timeout(20000)//超时，毫秒
+                .body(jsonStr)
                 .execute().body();
         return result;
     }
@@ -62,11 +63,11 @@ public class FbtApiClient {
         //可以单独传入http参数，这样参数会自动做URL编码，拼接在URL中
         HashMap<String, Object> paramMap = new HashMap<>();
         paramMap.put("input", genChartString(multipartFile,genChatByAiRequest));
-
+        String jsonStr = JSONUtil.toJsonStr(paramMap);
         String result = HttpRequest.post(GATEWAY_HOST + "/spark/bi")
                 .header("accessKey", accessKey)//头信息，多个头信息多次调用此方法即可
                 .header("sign",genSign(SALT,secretKey))
-                .form(paramMap)//表单内容
+                .body(jsonStr)
                 .timeout(20000)//超时，毫秒
                 .execute().body();
 
